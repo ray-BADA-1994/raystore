@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --price-tag-background: #d1d5db;
+  --price-tag-height: 2rem;
+}
+
+body {
+  background: #f1f1f1;
+}
+
+/* PRICE TAG STYLES */
+.price-tag {
+  background: var(--price-tag-background);
+  /* background: #e1b13891; */
+  color: #fff;
+
+  /* font-weight */
+  font-weight: 700;
+
+  /* Center the price */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  /* Used to position the triangle */
+  position: relative;
+  left: 20px;
+
+  /* Size */
+  height: var(--price-tag-height);
+
+  /* Spacing */
+  padding: 0.25rem 0.5rem;
+}
+
+/* The triangle */
+.price-tag::before {
+  content: "";
+
+  border-color: transparent var(--price-tag-background) transparent transparent;
+  border-style: solid;
+  border-width: calc(var(--price-tag-height) / 2)
+    calc(var(--price-tag-height) / 2) calc(var(--price-tag-height) / 2) 0rem;
+
+  /* Position */
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transform: translate(-100%, 0px);
+}
+
+/* The dot */
+.price-tag::after {
+  content: "";
+
+  /* Make it like a cirle */
+  background: #fff;
+  border-radius: 9999rem;
+
+  /* Position */
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-0.5rem, -50%);
+
+  /* Size */
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+/* SCROLL BAR */
+.scroll-div {
+  background-color: #1c87c9;
+  color: #fff;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.scroll-div:hover > .scroll-p {
+  animation-play-state: paused;
+}
+
+.scroll-p {
+  -moz-animation: marquee 20s linear infinite;
+  -webkit-animation: marquee 20s linear infinite;
+  animation: marquee 20s linear infinite;
+}
+@-moz-keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee {
+  0% {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+/* HEROSECTION SLIDER STYLES */
+.each-slide-effect > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-size: cover;
+  height: 50vh;
+  background-color: #e6e4dc;
+}
+
+@media (min-width: 760px) {
+  .each-slide-effect > div {
+    height: 90dvh;
+  }
+}
+
+/* .each-slide-effect span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+} */
+
+.olderprice {
+  text-decoration: line-through;
+}
+
+.effects {
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+  position: relative;
+}
+
+.effects::after {
+  content: "Don't be Afraid";
+  position: absolute;
+  inset: -1rem;
+  height: fit-content;
+  width: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* background: red; */
+  /* z-index: -10; */
+  transform: translateZ(-1px);
+  /* transform: translatex(50px); */
+}
+
+.effects::before {
+  content: "To Express Your Style";
+  position: absolute;
+  inset: -5rem;
+  height: fit-content;
+  width: fit-content;
+  padding-left: 40px;
+  top: 50%;
+  left: 75%;
+  transform: translateY(-50%);
+  /* background: blue; */
+  transform: translateZ(-1px);
+}
+
+.cat:hover > img {
+  transform: scale(1.1);
+}
+
+/* FEATURED PRODUCT */
+
+.card-img-div:hover > span {
+  opacity: 1;
+}
+
+.add-to-cart {
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.add-to-cart::after {
+  position: absolute;
+  font-size: 12px;
+  content: "Add to cart";
+  height: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  padding-inline: 10px;
+  padding-block: 5px;
+  color: transparent;
+  background: transparent;
+  top: 110%;
+  z-index: 100;
+  /* display: none; */
+}
+
+.add-to-cart:hover::after {
+  display: block;
+  color: #f1f1f1;
+  background: #000000d4;
+}
+
+/* TOGGLE MENU */
+.icon-menu {
+  --gap: 5px;
+  --height-bar: 2.5px;
+  --pos-y-bar-one: 0;
+  --pos-y-bar-three: 0;
+  --scale-bar: 1;
+  --rotate-bar-one: 0;
+  --rotate-bar-three: 0;
+  width: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  cursor: pointer;
+  position: relative;
+}
+
+.bar {
+  position: relative;
+  height: var(--height-bar);
+  width: 100%;
+  border-radius: 0.5rem;
+  /* background-color: #9941fc; */
+  background-color: black;
+}
+
+.bar--1 {
+  top: var(--pos-y-bar-one);
+  transform: rotate(var(--rotate-bar-one));
+  transition: top 200ms 100ms, transform 100ms;
+}
+
+.bar--2 {
+  transform: scaleX(var(--scale-bar));
+  transition: transform 150ms 100ms;
+}
+
+.bar--3 {
+  bottom: var(--pos-y-bar-three);
+  transform: rotate(var(--rotate-bar-three));
+  transition: bottom 200ms 100ms, transform 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--1 {
+  transition: top 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu > .bar--3 {
+  transition: bottom 200ms, transform 200ms 100ms;
+}
+
+.check-icon:checked + .icon-menu {
+  --pos-y-bar-one: calc(var(--gap) + var(--height-bar));
+  --pos-y-bar-three: calc(var(--gap) + var(--height-bar));
+  --scale-bar: 0;
+  --rotate-bar-one: 45deg;
+  --rotate-bar-three: -45deg;
+}
+
+/* Loader for fetching */
+.loader_fetch {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border: 5px solid rgb(255, 17, 0);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation: rot5 1s infinite;
+}
+
+@keyframes rot5 {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+    border-top-color: rgb(139, 46, 46);
+    border-bottom-color: rgb(243, 92, 33);
+    border-right-color: transparent;
+    border-left-color: transparent;
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
