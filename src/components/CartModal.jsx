@@ -62,7 +62,7 @@ const CartModal = ({ closeModal }) => {
         {/* LAYOUT DIV */}
         <div className="h-screen flex flex-col items-start justify-start py-5 px-3">
           {/* close button */}
-          <div className=" w-full flex justify-end pb-3">
+          <div className=" w-full flex justify-end pb-3 md:hidden">
             <span
               className="text-lg  border-2 border-red-900 rounded-full p-1"
               onClick={() => closeModal(false)}

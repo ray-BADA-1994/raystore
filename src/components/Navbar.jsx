@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   AiOutlineClose,
   AiOutlineHome,
@@ -17,6 +17,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 export const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  const location = useLocation()
+
   const navigate = useNavigate();
 
   const handleNavigateToPage = (path) => {
@@ -28,6 +30,7 @@ export const Navbar = () => {
     setToggleMenu(false);
     navigate(path);
   };
+
   // const cartnum = useStore((state) => state.cartnum);
   const cartnum = useCartStore((state) => state.cartnum);
 
@@ -48,13 +51,37 @@ export const Navbar = () => {
   }, [toggleMenu]);
 
   const handleScrollToSection = (path) => {
-    setToggleMenu(!toggleMenu);
+    setToggleMenu(false);
     const element = document.getElementById(path);
     if (element) {
       // Will scroll smoothly to the top of the next section
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const [onResize, setOnResize] = useState(false);
+
+  // const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      // console.log(window.innerWidth);
+      // do magic for resize
+      if (window.innerWidth < 720) {
+        setOnResize(true);
+      } else {
+        setOnResize(false);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <nav className="py-5  flex lg:justify-between gap-3 md:gap-0 relative items-center border-b border-gray-300">
@@ -113,24 +140,26 @@ export const Navbar = () => {
         }`}
       >
         <span
-          onClick={() => handleNavigateToPage("/")}
+          onClick={() => (onResize ? handleNavigateToPage("/") : navigate("/"))}
           // to={"/"}
-          className="---layout--- flex items-center justify-center gap-1  text-base   font-medium text-slate-500 hover:text-slate-700 md:text-sm border-r border-slate-300 transition-all py-1y mr-1 px-2 hover:border-slate-800  "
+          className="---layout--- cursor-pointer flex items-center justify-center gap-1  text-base   font-medium text-slate-500 hover:text-slate-700 md:text-sm border-r border-slate-300 transition-all py-1y mr-1 px-2 hover:border-slate-800  "
         >
           <AiOutlineHome className="mt-[2px]" />
           Home
         </span>
         <button
           onClick={() => handleScrollToSection("categories")}
-          className="---layout--- flex items-center justify-center gap-2 text-base  font-medium text-slate-500 hover:text-slate-700 md:text-sm border-r border-slate-300 transition-all py-1y mr-1 px-2 hover:border-slate-800  "
+          className={`---layout---  ${location.pathname === '/' ? "flex" : "hidden"} items-center justify-center gap-2 text-base  font-medium text-slate-500 hover:text-slate-700 md:text-sm border-r border-slate-300 transition-all py-1y mr-1 px-2 hover:border-slate-800`}
         >
           <BiCategory className="mt-[2px]" />
           Categories
         </button>
         <span
-          onClick={() => handleNavigateToPage("/shop")}
+          onClick={() =>
+            onResize ? handleNavigateToPage("/shop") : navigate("/shop")
+          }
           // to={"/shop"}
-          className="---layout--- flex items-center justify-center gap-2 text-base  font-medium text-slate-500 hover:text-slate-700 md:text-sm border-r border-slate-300 transition-all py-1y mr-1 px-2 hover:border-slate-800  "
+          className="---layout--- cursor-pointer flex items-center justify-center gap-2 text-base  font-medium text-slate-500 hover:text-slate-700 md:text-sm border-r border-slate-300 transition-all py-1y mr-1 px-2 hover:border-slate-800  "
         >
           <AiOutlineShopping className="mt-[2px]" />
           Shop
