@@ -1,7 +1,7 @@
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import heroImg1 from "../assets/heroimg1.png";
-import heroImg2 from "../assets/heroimg3.png";
+import heroImg2 from "../assets/heroImg3.png";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
