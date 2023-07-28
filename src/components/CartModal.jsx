@@ -17,7 +17,7 @@ const CartModal = ({ closeModal }) => {
 
   const handleNavigateToCheckOut = () => {
     closeModal(false);
-    navigate("/checkout");
+    navigate("/checkout", { state: "checkout" });
   };
 
   //   const totalPrice = () => {
@@ -51,12 +51,12 @@ const CartModal = ({ closeModal }) => {
   return (
     // Modal container
     <div
-      className="fixed top-0 z-[1000] right-0 w-full min-h-screen overflow-scroll bg-[rgba(0,0,0,0.6)] flex justify-end"
+      className="fixed top-0 z-[1000] right-0 w-full min-h-screen overflow-scroll cartmodal bg-[rgba(0,0,0,0.6)] flex justify-end"
       onClick={() => closeModal(false)}
     >
       {/* WHITE CONTAINER BG */}
       <div
-        className="bg-white w-[400px] h-screen overflow-scroll pb-24"
+        className="bg-white w-[400px] h-screen overflow-scroll pb-24 md:pb-0 cartmodal-white-bg"
         onClick={(e) => e.stopPropagation()}
       >
         {/* LAYOUT DIV */}

@@ -19,6 +19,8 @@ export const Navbar = () => {
 
   const location = useLocation()
 
+  console.log(location);
+
   const navigate = useNavigate();
 
   const handleNavigateToPage = (path) => {

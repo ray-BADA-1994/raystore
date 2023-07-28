@@ -9,6 +9,7 @@
 
 body {
   background: #f1f1f1;
+  overflow-x: hidden;
 }
 
 /* PRICE TAG STYLES */
@@ -305,4 +306,15 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* CART SCROLL BAR */
+.cartmodal, .cartmodal-white-bg{
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+.cartmodal::-webkit-scrollbar, .cartmodal-white-bg::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }

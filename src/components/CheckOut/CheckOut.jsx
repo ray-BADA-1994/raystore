@@ -39,7 +39,7 @@ const CheckOut = () => {
 
   const MinusCount = () => {
     if (count <= 1) {
-      navigate("/");
+      navigate("/shop");
       // return handleShowCO();
     }
     setCount((prev) => prev - 1);
