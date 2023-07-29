@@ -4,6 +4,7 @@ import streetwear from "../assets/FTstreetwear.png";
 import suits from "../assets/FTsuits.jpg";
 
 const FashionTrend = () => {
+  
   const categoriesArray = [
     {
       title: "Street fashion",
@@ -21,6 +22,7 @@ const FashionTrend = () => {
       img: accessories,
     },
   ];
+
   return (
     <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-10y">
       {categoriesArray.map((category) => (
