@@ -203,7 +203,7 @@ body {
   height: fit-content;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: max-content;
   padding-inline: 10px;
   padding-block: 5px;
   color: transparent;

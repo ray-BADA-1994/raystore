@@ -77,7 +77,13 @@ const GridSlideDisplay = ({ data }) => {
             <div className="bg-gray-100 p-6 pt-2">
               <h2 className="text-base text-gray-900 font-medium title-font mb-1">
                 {/* Chichen Itza */}
-                {element.title}
+                <Link
+                  to={`/${element.category.replace(/\s+/g, "-")}/${
+                    element.id
+                  }/${element.title.replace(/\s+/g, "-")}`}
+                >
+                  {element.title}
+                </Link>
               </h2>
               <h3 className=" text-gray-400 text-xs font-semibold title-font">
                 {/* Cloth Type */}

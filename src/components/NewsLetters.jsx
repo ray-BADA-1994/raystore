@@ -17,7 +17,7 @@ const NewsLetters = () => {
       <div className="space-x-5y flex gap-5 flex-col items-center justify-center">
         <input
           type="email"
-          className="w-[300px] lg:w-[500px] px-4 py-4 font-semibold text-black placeholder:text-slate-300 placeholder:italic placeholder:font-normal placeholder:text-sm"
+          className="w-[300px] outline-none lg:w-[500px] px-4 py-4 font-semibold text-black placeholder:text-slate-300 placeholder:italic placeholder:font-normal placeholder:text-sm"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email address"

@@ -26,7 +26,7 @@ const CheckOut = () => {
 
   const [count, setCount] = useState(1);
 
-  const SectionTitle = ["Cart", "Information", "Shipping", "Payment"];
+  const SectionTitle = ["Shopping", "Information", "Shipping", "Payment"];
 
   const navigate = useNavigate();
 

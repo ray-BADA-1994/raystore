@@ -14,6 +14,7 @@ const Home = () => {
       <ScrollBar />
       <HeroSection />
       <div className="w-[90%] md:w-[75%] mx-auto space-y-10k">
+        <SectionDivider title={"Categories"} />
         <Categories />
         <SectionDivider title={"Featured Item"} />
         <FeaturedProducts />
