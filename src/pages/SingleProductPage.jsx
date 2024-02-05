@@ -99,7 +99,7 @@ const SingleProductPage = () => {
 
   return (
     <div className="w-[90%] md:w-[75%] mx-auto mb-10">
-      <div className=" py-10 grid grid-col-1 lg:grid-cols-2 gap-y-5 space-y-10k">
+      <div className=" py-10 grid grid-col-1 lg:grid-cols-2 gap-5 space-y-10k">
         {/* PRODUCT IMAGE */}
         <div className="h-[70vh] ">
           <img
