@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const ShopByCategory = () => {
   // const category = [
@@ -11,7 +12,12 @@ const ShopByCategory = () => {
   //   " BRIDALWEAR",
   // ];
 
-  const category = ["Men's Clothings", "Women's Clothings", "Jewerys"]
+  // const category = ["Men's Clothings", "Women's Clothings", "Jewerys"]
+  const category = [
+    { cat: "Men's Clothings", link: "all/men's-clothing" },
+    { cat: "Women's Clothings", link: "all/women's-clothing" },
+    { cat: "Jewerys", link: "all/jewelery" },
+  ];
   return (
     <div
       id="footer-shopCategory-media-links"
@@ -26,13 +32,13 @@ const ShopByCategory = () => {
       >
         {category.map((item, index) => {
           return (
-            <a
+            <Link
               key={index}
-              href="#"
+              to={item.link}
               className="text-slate-500 hover:text-slate-600"
             >
-              {item}
-            </a>
+              {item.cat}
+            </Link>
           );
         })}
       </div>

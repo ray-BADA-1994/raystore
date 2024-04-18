@@ -16,6 +16,8 @@ import {
   MdOutlineKeyboardArrowUp,
   MdOutlineKeyboardArrowDown,
 } from "react-icons/md";
+import PaystackComponent from "../Payment/PaymentBtn";
+import VerifyPayment from "../Payment/VerifyPayment";
 
 const CheckOut = () => {
   const { toggle } = useCheckOutContext();
@@ -123,16 +125,28 @@ const CheckOut = () => {
               <GrFormPrevious />
               Return to {count == 1 ? SectionTitle[0] : SectionTitle[count - 1]}
             </button>
-            <button
-              className="text-[15px] tracking-tighter bg-slate-900 px-5 py-3 rounded-md text-white"
-              onClick={(e) => {
-                e.preventDefault();
-                subRef.current.submitForm();
-              }}
-            >
-              Continue to{" "}
-              {count == 3 ? SectionTitle[count] : SectionTitle[count + 1]}
-            </button>
+            {count === 2 ? (
+              // <PaystackComponent />
+              <VerifyPayment />
+              // <button>hello baby</button>
+            ) : (
+              <button
+                className="text-[15px] tracking-tighter bg-slate-900 px-5 py-3 rounded-md text-white"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (count === 1) {
+                    subRef.current.submitForm();
+                    return;
+                  }
+                  if (count === 2) {
+                    // alert(count);
+                  }
+                }}
+              >
+                Continue to{" "}
+                {count == 3 ? SectionTitle[count] : SectionTitle[count + 1]}
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -161,7 +175,7 @@ const CheckOut = () => {
         <div
           className={`${
             show ? "" : "hidden"
-          } md:block w-full space-y-4 py-5 md:py-10 flex-1 max-h-[700px] `}
+          } md:block w-full space-y-4 py-5 md:py-10 flex-1 max-h-[700px] overflow-y-scroll `}
         >
           {cartItems.map((item, i) => (
             <div

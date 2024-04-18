@@ -42,14 +42,14 @@ const ShippingInfo = ({ setCount, EditAdressAndEmail }) => {
       <div className="flex gap-4 py-3">
         <span className="headtitle text-[14px]  text-gray-400">Method</span>
         <span className="headbody text-[#333333] text-[14px]">
-          Korea Service
+          Home Delivery
         </span>
-        <button
+        {/* <button
           className="ml-auto text-[12px] text-red-600"
           onClick={() => setCount((prev) => prev - 1)}
         >
           Change
-        </button>
+        </button> */}
       </div>
     </div>
   );

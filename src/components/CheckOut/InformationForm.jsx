@@ -46,7 +46,7 @@ const InformationForm = ({ AddCount }, ref) => {
       firstname: checkOutInfo.firstname,
       Lastname: checkOutInfo.lastname,
     };
-    console.log(message);
+    // console.log(message);
 
     // const config2 = {
     //   // SecureToken:'4df9bc2c-7e3d-45f8-b1a5-5f514d59591d',
